@@ -5,49 +5,14 @@ window = tk.Tk()
 window.title("калькулятор")
 window.geometry("500x350")
 
-# _____создание кнопки______
-frame = ttk.Frame(borderwidth=1, relief=tk.SOLID, padding=[8, 10])
-name_label = ttk.Label(frame, text="Введите первое число")
-name_label.pack(anchor=tk.NW)
+window.configure(bg='lightblue')   # фоновый цвет
 
-name_entry = ttk.Entry(frame)
-name_entry.pack(anchor=tk.NW)
 
-frame.pack(anchor=tk.NW, fill=tk.X, padx=5, pady=5)
-# _____________________________________________________________________
-frame = ttk.Frame(borderwidth=1, relief=tk.SOLID, padding=[8, 10])
-name_label = ttk.Label(frame, text="Введите действие")
-name_label.pack(anchor=tk.NW)
-
-name_entry2 = ttk.Entry(frame)
-name_entry2.pack(anchor=tk.NW)
-
-frame.pack(anchor=tk.NW, fill=tk.X, padx=5, pady=5)
-# _____________________________________________________________________
-frame = ttk.Frame(borderwidth=1, relief=tk.SOLID, padding=[8, 10])
-name_label = ttk.Label(frame, text="Введите второе число")
-name_label.pack(anchor=tk.NW)
-
-name_entry3 = ttk.Entry(frame)
-name_entry3.pack(anchor=tk.NW)
-
-frame.pack(anchor=tk.NW, fill=tk.X, padx=5, pady=5)
-# _____________________________________________________________________
-
-frame = ttk.Frame(borderwidth=1, relief=tk.SOLID, padding=[8, 10])
-name_label = ttk.Label(frame, text="Результат")
-name_label.pack(anchor=tk.NW)
-
-# Создаем поле для результата
-result_entry = ttk.Entry(frame)
-result_entry.pack(anchor=tk.NW)
-
-frame.pack(anchor=tk.NW, fill=tk.X, padx=5, pady=5)
 
 
 def calculate():
     try:
-        num1 = float(name_entry.get())  # Используем float вместо int для работы с десятичными числами
+        num1 = float(name_entry.get())
         operation = name_entry2.get()
         num2 = float(name_entry3.get())
 
@@ -77,7 +42,52 @@ def calculate():
         result_entry.insert(0, f"Ошибка: {str(e)}")
 
 
+# _____первое число______
+frame1 = ttk.Frame(borderwidth=1, relief=tk.SOLID, padding=[8, 10])
+name_label1 = ttk.Label(frame1, text="Введите первое число")
+name_label1.pack(anchor=tk.NW)
+
+name_entry = ttk.Entry(frame1)
+name_entry.pack(anchor=tk.NW)
+
+frame1.pack(anchor=tk.NW, fill=tk.X, padx=5, pady=5)
+# _____________________________________________________________________
+# _____действие______
+frame2 = ttk.Frame(borderwidth=1, relief=tk.SOLID, padding=[8, 10])
+name_label2 = ttk.Label(frame2, text="Введите действие")
+name_label2.pack(anchor=tk.NW)
+
+name_entry2 = ttk.Entry(frame2)
+name_entry2.pack(anchor=tk.NW)
+
+frame2.pack(anchor=tk.NW, fill=tk.X, padx=5, pady=5)
+# _____________________________________________________________________
+# _____второе число______
+frame3 = ttk.Frame(borderwidth=1, relief=tk.SOLID, padding=[8, 10])
+name_label3 = ttk.Label(frame3, text="Введите второе число")
+name_label3.pack(anchor=tk.NW)
+
+name_entry3 = ttk.Entry(frame3)
+name_entry3.pack(anchor=tk.NW)
+
+frame3.pack(anchor=tk.NW, fill=tk.X, padx=5, pady=5)
+# _____________________________________________________________________
+
+# _____кнопка посчитать______
 button = tk.Button(window, text='Посчитать', command=calculate)
-button.pack()
+button.pack(pady=10)  # добавляем отступ сверху и снизу
+# _____________________________________________________________________
+
+# _____результат (в самом низу)______
+frame4 = ttk.Frame(borderwidth=1, relief=tk.SOLID, padding=[8, 10])
+name_label4 = ttk.Label(frame4, text="Результат")
+name_label4.pack(anchor=tk.NW)
+
+# Создаем поле для результата
+result_entry = ttk.Entry(frame4)
+result_entry.pack(anchor=tk.NW)
+
+frame4.pack(anchor=tk.NW, fill=tk.X, padx=5, pady=5)
+# _____________________________________________________________________
 
 window.mainloop()
